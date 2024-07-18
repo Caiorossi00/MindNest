@@ -1,5 +1,5 @@
 * {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Roboto", serif;
   font-weight: 400;
 }
 
@@ -45,6 +45,8 @@ body {
   padding: 9px 6em;
   border-radius: 4px;
   color: black;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
 }
 
 .item {
