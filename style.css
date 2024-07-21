@@ -1,5 +1,5 @@
 * {
-  font-family: "Roboto", serif;
+  font-family: "Bebas Neue", serif;
   font-weight: 400;
 }
 
@@ -60,6 +60,11 @@ body {
   background-image: url("https://i.pinimg.com/736x/60/4f/a8/604fa8d220e50852794ee51c70037241.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.item-content {
+  display: flex;
+  gap: 1em;
 }
 
 .item h3 {

@@ -89,23 +89,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const itemDiv = document.createElement("div");
     itemDiv.classList.add("item");
 
+    const innerDiv = document.createElement("div");
+    innerDiv.classList.add("item-content");
+
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.classList.add("item-checkbox");
-    itemDiv.appendChild(checkbox);
+    innerDiv.appendChild(checkbox);
 
     const itemTitle = document.createElement("h3");
     itemTitle.classList.add("item-title");
     itemTitle.textContent = itemName;
+    innerDiv.appendChild(itemTitle);
 
     const editItemBtn = document.createElement("button");
     editItemBtn.innerHTML = '<i class="fas fa-edit"></i>';
     editItemBtn.classList.add("edit-item-btn");
+    innerDiv.appendChild(editItemBtn);
 
     const saveItemBtn = document.createElement("button");
     saveItemBtn.textContent = "Salvar";
     saveItemBtn.classList.add("save-item-btn");
     saveItemBtn.style.display = "none";
+    innerDiv.appendChild(saveItemBtn);
 
     editItemBtn.addEventListener("click", () => {
       itemTitle.style.display = "none";
@@ -132,13 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
     newCommentInput.type = "text";
     newCommentInput.placeholder = "Insira seu comentário";
     newCommentInput.classList.add("new-comment-input");
+    innerDiv.appendChild(newCommentInput);
 
     const addCommentBtn = document.createElement("button");
     addCommentBtn.innerHTML = '<i class="fas fa-comment-medical"></i>';
     addCommentBtn.classList.add("add-comment-btn");
+    innerDiv.appendChild(addCommentBtn);
 
     const commentsList = document.createElement("div");
     commentsList.classList.add("comments-list");
+    innerDiv.appendChild(commentsList);
 
     addCommentBtn.addEventListener("click", () => {
       const newCommentText = newCommentInput.value.trim();
@@ -153,19 +162,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const removeItemBtn = document.createElement("button");
     removeItemBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
     removeItemBtn.classList.add("remove-item-btn");
+    innerDiv.appendChild(removeItemBtn);
 
     removeItemBtn.addEventListener("click", () => {
       itemDiv.remove();
     });
 
-    itemDiv.appendChild(itemTitle);
-    itemDiv.appendChild(editItemBtn);
-    itemDiv.appendChild(saveItemBtn);
-    itemDiv.appendChild(removeItemBtn);
-    itemDiv.appendChild(commentsList);
-    itemDiv.appendChild(newCommentInput);
-    itemDiv.appendChild(addCommentBtn);
-
+    itemDiv.appendChild(innerDiv);
     itemsList.appendChild(itemDiv);
   }
 
