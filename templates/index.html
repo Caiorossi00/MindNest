@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MindNest</title>
-    <link rel="icon" type="image/x-icon" href="./assets/logo.png" />
+    <link rel="icon" type="image/x-icon" href="../static/images/logo.png" />
 
-    <link rel="stylesheet" href="./assets/reset.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../static/css/reset.css" />
+    <link rel="stylesheet" href="../static/css/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,9 +20,18 @@
     ></script>
   </head>
   <body>
-    <img src="./assets/logo2.png" alt="MindNest Logo" class="logo" />
-    <div id="input-area"></div>
-    <div id="checklist-container"></div>
-    <script src="script.js"></script>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+      </ul>
+    </nav>
+    <main>
+      <img src="../static/images/logo2.png" alt="MindNest Logo" class="logo" />
+      <div id="input-area"></div>
+      <div id="checklist-container"></div>
+    </main>
+
+    <script src="../static/js/script.js"></script>
   </body>
 </html>
