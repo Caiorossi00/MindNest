@@ -4,8 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MindNest - Login</title>
-    <link rel="icon" type="image/x-icon" href="../static/images/logo.png" />
-    <link rel="stylesheet" href="../static/css/login.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/logo.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/login.css') }}"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,17 +22,27 @@
   </head>
   <body>
     <div class="login-container">
-      <img src="../static/images/logo3.png" alt="MindNest Logo" class="logo" />
+      <img
+        src="{{ url_for('static', filename='images/logo3.png') }}"
+        alt="MindNest Logo"
+        class="logo"
+      />
 
       <form id="login-form" method="POST" action="{{ url_for('login') }}">
+        {{ form.hidden_tag() }}
+
         <div class="input-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
+          {{ form.username.label }} {{ form.username(id='username',
+          required=True) }} {% for error in form.username.errors %}
+          <span style="color: red">{{ error }}</span>
+          {% endfor %}
         </div>
 
         <div class="input-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
+          {{ form.password.label }} {{ form.password(id='password',
+          required=True) }} {% for error in form.password.errors %}
+          <span style="color: red">{{ error }}</span>
+          {% endfor %}
         </div>
 
         <button type="submit">Login</button>
