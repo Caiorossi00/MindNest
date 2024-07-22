@@ -4,7 +4,6 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
-
 from wtforms import StringField, PasswordField, SubmitField
 from flask_wtf import FlaskForm
 from wtforms.validators import InputRequired, Length, EqualTo
@@ -26,12 +25,12 @@ def load_user(user_id):
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired(), Length(min=4, max=20)])
-    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=4, max=80)])
     submit = SubmitField('Login')
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired(), Length(min=4, max=20)])
-    password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=4, max=80)])
     confirm_password = PasswordField('Confirm Password', validators=[InputRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
